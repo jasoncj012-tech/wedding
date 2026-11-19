@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102d25">
+<title>An Invitation | A Royal Celebration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Italianno&display=swap" rel="stylesheet">
+<style>
+:root{--green:#102d25;--green2:#183d32;--gold:#c5a66b;--gold2:#e5d2a6;--ivory:#f8f5ed;--cream:#eee8db;--ink:#25332c;--muted:#77796e;--serif:"Cormorant Garamond",Georgia,serif;--sans:"DM Sans",sans-serif;--script:"Italianno",cursive}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);font-weight:300}body.locked{overflow:hidden}a{color:inherit}.eyebrow{font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}.section{padding:112px 7vw;position:relative}.section-heading{text-align:center;margin:0 auto 48px;max-width:650px}.section-heading h2{font:500 clamp(2.8rem,6vw,5rem)/.95 var(--serif);margin:12px 0;color:var(--green)}.section-heading p{color:var(--muted);line-height:1.8;font-size:.9rem}.ornament{display:flex;align-items:center;justify-content:center;gap:14px;color:var(--gold);margin:22px 0}.ornament:before,.ornament:after{content:"";width:54px;height:1px;background:var(--gold)}.script{font:3rem var(--script);color:var(--gold)}
+/* Opening */
+#opening{position:fixed;inset:0;z-index:50;background:radial-gradient(ellipse at center,#21483a 0%,#102d25 60%,#091d18 100%);display:grid;place-items:center;padding:24px;transition:opacity 1s ease,visibility 1s ease}#opening.dismissed{opacity:0;visibility:hidden;pointer-events:none}.opening-inner{text-align:center;color:var(--ivory);width:min(540px,100%)}.opening-inner .eyebrow{color:var(--gold2)}.opening-inner h1{font:500 clamp(2.7rem,8vw,5.5rem)/.92 var(--serif);margin:20px 0 10px}.opening-inner p{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:#d8d0bd}.envelope-wrap{width:220px;height:150px;margin:38px auto 32px;position:relative;perspective:800px;filter:drop-shadow(0 18px 20px #0005)}.envelope{position:absolute;inset:0;background:#e8dcc2;border:1px solid var(--gold);border-radius:3px;overflow:visible}.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(140deg,transparent 49.5%,#c5ae82 50%,transparent 50.7%),linear-gradient(220deg,transparent 49.5%,#c5ae82 50%,transparent 50.7%);z-index:2}.flap{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(145deg,#f2e7d0,#d8c49c);clip-path:polygon(0 0,100% 0,50% 58%);transform-origin:top;transition:transform 1s ease;z-index:4;border-top:1px solid #b99d65}.seal{position:absolute;z-index:5;left:50%;top:48%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f1dfb5,#a88445);display:grid;place-items:center;color:#fff7e8;font:1.2rem var(--serif);box-shadow:0 2px 8px #70552b66;transition:opacity .4s}.envelope.open .flap{transform:rotateX(180deg)}.envelope.open .seal{opacity:0}.open-btn,.gold-btn{border:1px solid var(--gold);background:transparent;color:var(--gold2);padding:15px 27px;letter-spacing:.2em;text-transform:uppercase;font:500 .65rem var(--sans);cursor:pointer;transition:.3s}.open-btn:hover{background:var(--gold);color:var(--green)}.open-btn:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:4px}.opening-note{font-size:.65rem!important;letter-spacing:.08em!important;text-transform:none!important;color:#bdb7a8!important;margin-top:20px}
+/* Music */
+.music-control{position:fixed;right:24px;top:22px;z-index:20;background:#102d25eF;color:var(--gold2);border:1px solid #c5a66b88;border-radius:50px;padding:10px 15px;display:flex;align-items:center;gap:10px;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(8px)}.bars{height:14px;display:flex;align-items:center;gap:2px}.bars i{display:block;width:2px;height:5px;background:var(--gold2);border-radius:2px}.music-control.playing .bars i{animation:eq .7s ease-in-out infinite alternate}.bars i:nth-child(2){animation-delay:.2s}.bars i:nth-child(3){animation-delay:.4s}.bars i:nth-child(4){animation-delay:.1s}@keyframes eq{to{height:14px}}
+/* Hero */
+.hero{min-height:100svh;background:linear-gradient(90deg,#071b16c9,#071b1640),url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2200&q=85') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ivory);padding:110px 22px 80px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;inset:18px;border:1px solid #c5a66b88;pointer-events:none}.hero-content{position:relative;z-index:1;max-width:900px}.hero .eyebrow{color:var(--gold2)}.hero h1{font:500 clamp(4rem,12vw,9rem)/.78 var(--serif);margin:32px 0 18px;letter-spacing:-.045em}.hero h1 span{display:block;font:3.6rem var(--script);color:var(--gold2);margin:18px 0}.hero-date{font:500 1rem var(--serif);letter-spacing:.28em;text-transform:uppercase}.hero-quote{font:italic 1.2rem var(--serif);color:#e8dfcf;margin:35px auto 0;max-width:500px}.scroll-cue{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:#e6dcc8}.scroll-cue:after{content:"";display:block;height:35px;width:1px;background:var(--gold);margin:12px auto 0}
+/* Intro */
+.intro{background:var(--ivory);text-align:center}.intro .names{font:500 clamp(2.6rem,7vw,5.2rem)/.9 var(--serif);color:var(--green)}.intro .amp{font:3rem var(--script);color:var(--gold);padding:10px}.intro-copy{max-width:600px;margin:28px auto;color:var(--muted);line-height:1.9;font-size:.9rem}
+/* Countdown */
+.countdown{background:var(--green);color:var(--ivory);text-align:center;padding:75px 20px}.countdown h2{font:500 clamp(2.3rem,5vw,4rem) var(--serif);margin:10px 0 32px}.count-grid{display:flex;justify-content:center;gap:clamp(18px,5vw,65px)}.count-item strong{font:500 clamp(2.5rem,7vw,4.5rem) var(--serif);display:block;color:var(--gold2);font-variant-numeric:tabular-nums}.count-item span{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:#d5cbb8}.countdown .eyebrow{color:var(--gold2)}
+/* Details */
+.details{background:#eee8db}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:980px;margin:auto}.detail-card{background:var(--ivory);padding:42px 30px;text-align:center;border:1px solid #c5a66b55;position:relative}.detail-card:before{content:"";position:absolute;inset:8px;border:1px solid #c5a66b44;pointer-events:none}.detail-card .symbol{font:2rem var(--serif);color:var(--gold)}.detail-card h3{font:500 2rem var(--serif);color:var(--green);margin:13px 0}.detail-card p{color:var(--muted);line-height:1.8;font-size:.85rem;margin:5px}.detail-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px}.detail-actions a,.detail-actions button{border:1px solid var(--gold);padding:11px 16px;text-decoration:none;color:var(--green);background:transparent;font:500 .62rem var(--sans);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}.detail-actions a:hover,.detail-actions button:hover{background:var(--green);color:var(--ivory)}
+/* Gallery */
+.gallery{background:var(--ivory)}.gallery-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr 1fr;grid-template-rows:230px 230px;gap:14px}.gallery-item{border:0;padding:0;overflow:hidden;position:relative;background:#ddd;cursor:zoom-in}.gallery-item:first-child{grid-row:span 2}.gallery-item:nth-child(4){grid-column:2/4}.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s}.gallery-item:hover img{transform:scale(1.06);filter:brightness(.85)}.gallery-item:after{content:"View photograph";position:absolute;bottom:14px;left:16px;color:white;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;opacity:0;transition:.3s}.gallery-item:hover:after{opacity:1}.lightbox{position:fixed;inset:0;background:#071b16ed;z-index:80;display:none;align-items:center;justify-content:center;padding:25px}.lightbox.show{display:flex}.lightbox img{max-width:min(100%,1100px);max-height:85vh;object-fit:contain}.lightbox button{position:absolute;top:22px;right:25px;background:transparent;color:white;border:1px solid #c5a66b;padding:10px 14px;cursor:pointer}
+/* Schedule */
+.schedule{background:var(--green);color:var(--ivory)}.schedule .section-heading h2{color:var(--ivory)}.schedule .section-heading p{color:#c6c5b8}.timeline{max-width:650px;margin:auto;position:relative}.timeline:before{content:"";position:absolute;left:111px;top:8px;bottom:8px;width:1px;background:#c5a66b88}.event{display:grid;grid-template-columns:90px 42px 1fr;gap:0 18px;align-items:start;padding:0 0 30px}.event time{font:500 1.25rem var(--serif);color:var(--gold2);text-align:right;padding-top:2px}.event .dot{width:9px;height:9px;border:1px solid var(--gold2);background:var(--green);border-radius:50%;margin:8px auto;z-index:1}.event h3{font:500 1.6rem var(--serif);margin:0 0 3px}.event p{margin:0;color:#c6c5b8;font-size:.78rem}
+/* RSVP */
+.rsvp{background:linear-gradient(#f8f5edee,#f8f5edee),url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=80') center/cover}.rsvp-form{max-width:650px;margin:auto;background:#fffdf8;border:1px solid #c5a66b77;padding:clamp(25px,5vw,50px);box-shadow:0 20px 60px #243b2b12}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:flex;flex-direction:column;gap:8px}.field.full{grid-column:1/-1}.field label{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:600}.field input,.field select,.field textarea{width:100%;border:0;border-bottom:1px solid #c8bea9;background:transparent;padding:12px 4px;font:300 .9rem var(--sans);color:var(--ink);border-radius:0}.field textarea{min-height:85px;resize:vertical}.submit-btn{margin-top:25px;background:var(--green);color:var(--gold2);border:1px solid var(--gold);padding:15px 25px;width:100%;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer}.submit-btn:hover{background:var(--gold);color:var(--green)}.form-note{font-size:.72rem;line-height:1.7;color:var(--muted);margin:17px 0 0}.form-result{display:none;margin-top:18px;padding:15px;background:#f1ecdf;color:var(--green);font-size:.85rem;line-height:1.6}.form-result.show{display:block}
+/* Wishes/footer */
+.wishes{background:#eee8db;text-align:center}.wish-card{max-width:700px;margin:auto;padding:55px 25px;border:1px solid #c5a66b88;position:relative}.wish-card:before{content:"";position:absolute;inset:8px;border:1px solid #c5a66b55;pointer-events:none}.wish-card h2{font:500 clamp(2.7rem,6vw,4.5rem) var(--serif);color:var(--green);margin:15px 0}.wish-card p{color:var(--muted);line-height:1.8;max-width:470px;margin:0 auto 25px}.wish-card a{display:inline-block;text-decoration:none;background:var(--green);color:var(--gold2);padding:14px 25px;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase}.footer{background:#0b211b;color:#d8d0bd;text-align:center;padding:55px 20px}.footer p{font:italic 1.25rem var(--serif);max-width:520px;margin:0 auto 22px}.footer .names{font:500 2.4rem var(--serif);color:var(--gold2)}.footer small{display:block;margin-top:15px;color:#aaa18e;letter-spacing:.18em;text-transform:uppercase;font-size:.58rem}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}.reveal.visible{opacity:1;transform:none}
+.petal{position:fixed;top:-20px;z-index:10;pointer-events:none;width:9px;height:13px;border-radius:80% 0 80% 0;background:linear-gradient(135deg,#e9d6b0,#b99458);opacity:.55;animation:fall linear forwards}@keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(650deg);opacity:0}}
+@media(max-width:700px){.section{padding:80px 22px}.hero h1{font-size:clamp(3.5rem,17vw,6rem)}.hero h1 span{font-size:2.8rem}.detail-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 170px 170px}.gallery-item:first-child{grid-row:auto;grid-column:1/-1}.gallery-item:nth-child(4){grid-column:auto}.gallery-item img{height:100%}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.timeline:before{left:75px}.event{grid-template-columns:58px 34px 1fr;gap:0 10px}.event time{font-size:1rem}.event h3{font-size:1.35rem}.music-control{right:12px;top:12px;padding:9px 12px}.hero:after{inset:10px}.count-grid{gap:16px}.count-item strong{font-size:2.4rem}.count-item span{font-size:.5rem;letter-spacing:.12em}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body class="locked">
+<!-- EDIT THE PLACEHOLDERS IN THE CONFIG SECTION NEAR THE END OF THIS FILE. -->
+<div id="opening" aria-label="Wedding invitation opening">
+  <div class="opening-inner">
+    <div class="eyebrow">A celebration of love</div>
+    <h1>You Are<br> Cordially Invited</h1>
+    <p>To witness the beginning of forever</p>
+    <div class="envelope-wrap"><div class="envelope" id="envelope"><div class="flap"></div><div class="seal">A &amp; J</div></div></div>
+    <button class="open-btn" id="openInvitation">Open Invitation&nbsp; ✦</button>
+    <p class="opening-note">Please open to reveal your invitation</p>
+  </div>
+</div>
+
+<button class="music-control" id="musicToggle" type="button" aria-label="Play background music">
+  <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="musicLabel">Music off</span>
+</button>
+<audio id="weddingAudio" loop preload="none">
+  <source src="assets/golden hour instrumental.mp3"
+  type="audio/mpeg">
+</audio>
+
+<header class="hero" id="home">
+  <div class="hero-content reveal">
+    <div class="eyebrow">Together with our families</div>
+    <h1><span class="script">the wedding of</span> Jovinia <span>&amp;</span> Albrecht</h1>
+    <div class="hero-date">27 November 2026 &nbsp;·&nbsp; Friday</div>
+    <div class="ornament">✧</div>
+    <p class="hero-quote">“The best thing to hold onto in life is each other.”</p>
+  </div>
+  <div class="scroll-cue">Scroll to discover</div>
+</header>
+
+<main>
+<section class="section intro">
+  <div class="reveal">
+    <div class="eyebrow">With joyful hearts</div>
+    <div class="ornament">❧</div>
+    <div class="names">Jovinia Egna</div><div class="amp">&amp;</div><div class="names">Albrecht</div>
+    <p class="intro-copy">Request the pleasure of your company as we join our lives in marriage. Your presence will make our celebration complete, and your blessings will make it unforgettable.</p>
+    <div class="eyebrow">Friday · The 27th of November · Two thousand twenty-six</div>
+  </div>
+</section>
+
+<section class="countdown">
+  <div class="eyebrow">The day we have been dreaming of</div>
+  <h2>Counting down to forever</h2>
+  <div class="count-grid" id="countdown">
+    <div class="count-item"><strong id="days">000</strong><span>Days</span></div>
+    <div class="count-item"><strong id="hours">00</strong><span>Hours</span></div>
+    <div class="count-item"><strong id="minutes">00</strong><span>Minutes</span></div>
+    <div class="count-item"><strong id="seconds">00</strong><span>Seconds</span></div>
+  </div>
+</section>
+
+<section class="section details" id="details">
+  <div class="section-heading reveal"><div class="eyebrow">Join us for the celebration</div><h2>When &amp; Where</h2><p>A day made more beautiful with the people we love.</p><div class="ornament">✧</div></div>
+  <div class="detail-grid reveal">
+    <article class="detail-card"><div class="symbol">✧</div><div class="eyebrow">The ceremony</div><h3>Wedding Vows</h3><p>Friday, 27 November 2026</p><p>10:00 in the morning</p><p>The Grand Conservatory</p><p>Jalan Damai, Kuala Lumpur</p></article>
+    <article class="detail-card"><div class="symbol">❦</div><div class="eyebrow">The celebration</div><h3>Wedding Reception</h3><p>Friday, 27 November 2026</p><p>10:30 in the morning</p><p>The Grand Conservatory Ballroom</p><p>Jalan Damai, Kuala Lumpur</p></article>
+  </div>
+  <div class="detail-actions"><a href="https://www.google.com/maps/search/?api=1&query=The+Grand+Conservatory+Jalan+Damai+Kuala+Lumpur" target="_blank" rel="noopener">View on Google Maps ↗</a><button id="copyLocation" type="button">Copy venue address</button></div>
+</section>
+
+<section class="section gallery" id="gallery">
+  <div class="section-heading reveal"><div class="eyebrow">A few moments, a lifetime of memories</div><h2>Our Story in Frames</h2><p>Little glimpses of the love and joy we cannot wait to celebrate with you.</p><div class="ornament">✧</div></div>
+  <div class="gallery-grid reveal">
+    <button class="gallery-item" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=90" aria-label="View wedding photograph"><img loading="lazy" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80" alt="Elegant wedding celebration"></button>
+    <button class="gallery-item" data-full="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1800&q=90" aria-label="View couple photograph"><img loading="lazy" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=700&q=80" alt="Romantic wedding details"></button>
+    <button class="gallery-item" data-full="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=90" aria-label="View wedding photograph"><img loading="lazy" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Wedding couple celebrating"></button>
+    <button class="gallery-item" data-full="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1800&q=90" aria-label="View wedding photograph"><img loading="lazy" src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1100&q=80" alt="Romantic wedding floral setting"></button>
+  </div>
+</section>
+
+<section class="section schedule" id="schedule">
+  <div class="section-heading reveal"><div class="eyebrow">The order of the day</div><h2>A Day to Remember</h2><p>We have planned a lovely day and would be delighted to share every moment with you.</p><div class="ornament">✧</div></div>
+  <div class="timeline reveal">
+    <div class="event"><time>9:30 AM</time><div class="dot"></div><div><h3>Guest Arrival</h3><p>A warm welcome and refreshments</p></div></div>
+    <div class="event"><time>10:00 AM</time><div class="dot"></div><div><h3>Wedding Ceremony</h3><p>The moment we say “I do”</p></div></div>
+    <div class="event"><time>11:00 AM</time><div class="dot"></div><div><h3>Photography Session</h3><p>Capturing memories with family and friends</p></div></div>
+    <div class="event"><time>12:00 PM</time><div class="dot"></div><div><h3>Wedding Reception</h3><p>Celebrating our new beginning</p></div></div>
+    <div class="event"><time>1:00 PM</time><div class="dot"></div><div><h3>Lunch &amp; Toasts</h3><p>Good food, heartfelt words and laughter</p></div></div>
+    <div class="event"><time>3:00 PM</time><div class="dot"></div><div><h3>Closing Ceremony</h3><p>With love and gratitude</p></div></div>
+  </div>
+</section>
+
+<section class="section rsvp" id="rsvp">
+  <div class="section-heading reveal"><div class="eyebrow">Kindly respond by 27 November 2026</div><h2>Will You Join Us?</h2><p>Your reply will help us prepare a celebration filled with warmth and care.</p><div class="ornament">✧</div></div>
+  <form class="rsvp-form reveal" id="rsvpForm">
+    <div class="form-grid">
+      <div class="field full"><label for="guestName">Your full name</label><input id="guestName" name="guestName" autocomplete="name" required placeholder="Enter your name"></div>
+      <div class="field"><label for="attendance">Your response</label><select id="attendance" name="attendance" required><option value="">Please select</option><option value="Accept with pleasure">Accept with pleasure</option><option value="Regretfully decline">Regretfully decline</option></select></div>
+      <div class="field"><label for="guests">Number of attendees</label><select id="guests" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+      <div class="field full"><label for="wishes">A message for the couple (optional)</label><textarea id="wishes" name="wishes" placeholder="Share your wishes..."></textarea></div>
+    </div>
+    <button class="submit-btn" type="submit">Prepare my response ✦</button>
+    <p class="form-note">Please note: this demonstration form does not send or save your RSVP. The couple must connect a secure form backend or RSVP service before publishing this invitation.</p>
+    <div class="form-result" id="formResult" role="status" aria-live="polite"></div>
+  </form>
+</section>
+
+<section class="section wishes">
+  <div class="wish-card reveal"><div class="eyebrow">A little note from the heart</div><h2>Send Us Your Wishes</h2><p>Every kind word and blessing means the world to us. We look forward to celebrating this beautiful chapter with you.</p><a href="mailto:hello@example.com?subject=Wedding%20Wishes%20for%20Jovinia%20%26%20Albrecht">Send your wishes ✦</a></div>
+</section>
+</main>
+<footer class="footer"><p>Together with our families, we invite you to celebrate our special day.</p><div class="names">Jovinia &amp; Albrecht</div><small>27 November 2026 · With love, always</small></footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo preview"><button id="closeLightbox" type="button">Close ✕</button><img id="lightboxImage" alt="Expanded wedding photograph"></div>
+
+<script>
+/* ===================== EDITABLE WEDDING CONFIG =====================
+   Change these values first. Use an ISO date with your local timezone.
+   Add a direct MP3 URL to musicUrl to enable the music player.
+==================================================================== */
+const WEDDING = {
+  couple: "Jovinia & Albrecht",
+  date: "2026-11-27T10:00:00+08:00",
+  venue: "The Grand Conservatory, Jalan Damai, Kuala Lumpur",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Grand+Conservatory+Jalan+Damai+Kuala+Lumpur",
+  musicUrl: "" // Example: "assets/romantic-instrumental.mp3"
+};
+
+const opening = document.getElementById("opening");
+const envelope = document.getElementById("envelope");
+document.getElementById("openInvitation").addEventListener("click", async () => {
+  envelope.classList.add("open");
+  document.body.classList.remove("locked");
+  // Music playback is attempted only after this visitor interaction.
+  if (WEDDING.musicUrl) {
+    audio.src = WEDDING.musicUrl;
+    try { await audio.play(); setMusicState(true); } catch (_) { setMusicState(false); }
+  }
+  setTimeout(() => {
+    opening.classList.add("dismissed");
+    document.querySelector(".hero .reveal").classList.add("visible");
+    startPetals();
+  }, 900);
+});
+
+const audio = document.getElementById("weddingAudio");
+const musicToggle = document.getElementById("musicToggle");
+function setMusicState(playing) {
+  musicToggle.classList.toggle("playing", playing);
+  document.getElementById("musicLabel").textContent = playing ? "Music on" : "Music off";
+  musicToggle.setAttribute("aria-label", playing ? "Pause background music" : "Play background music");
+}
+musicToggle.addEventListener("click", async () => {
+  if (!WEDDING.musicUrl) {
+    document.getElementById("musicLabel").textContent = "Add MP3";
+    return;
+  }
+  if (audio.paused) {
+    try { await audio.play(); setMusicState(true); } catch (_) { setMusicState(false); }
+  } else { audio.pause(); setMusicState(false); }
+});
+audio.addEventListener("ended", () => setMusicState(false));
+audio.addEventListener("pause", () => setMusicState(false));
+audio.addEventListener("play", () => setMusicState(true));
+
+function updateCountdown() {
+  const distance = new Date(WEDDING.date).getTime() - Date.now();
+  if (distance <= 0) {
+    document.getElementById("countdown").innerHTML = '<div class="eyebrow">Today is the day. Let the celebration begin.</div>';
+    return;
+  }
+  const days = Math.floor(distance / 86400000);
+  const hours = Math.floor((distance % 86400000) / 3600000);
+  const minutes = Math.floor((distance % 3600000) / 60000);
+  const seconds = Math.floor((distance % 60000) / 1000);
+  document.getElementById("days").textContent = String(days).padStart(3, "0");
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+}
+updateCountdown(); setInterval(updateCountdown, 1000);
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); }
+  });
+}, {threshold: .14});
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+function startPetals() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let made = 0;
+  const timer = setInterval(() => {
+    if (made++ > 26) { clearInterval(timer); return; }
+    const petal = document.createElement("span");
+    petal.className = "petal";
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.setProperty("--drift", (Math.random() * 180 - 90) + "px");
+    petal.style.animationDuration = (7 + Math.random() * 6) + "s";
+    document.body.appendChild(petal);
+    setTimeout(() => petal.remove(), 14000);
+  }, 500);
+}
+
+document.getElementById("copyLocation").addEventListener("click", async () => {
+  const btn = document.getElementById("copyLocation");
+  try {
+    await navigator.clipboard.writeText(WEDDING.venue);
+    btn.textContent = "Address copied ✓";
+  } catch (_) { btn.textContent = "Copy unavailable"; }
+  setTimeout(() => btn.textContent = "Copy venue address", 2200);
+});
+
+document.querySelectorAll(".gallery-item").forEach(item => item.addEventListener("click", () => {
+  document.getElementById("lightboxImage").src = item.dataset.full;
+  document.getElementById("lightbox").classList.add("show");
+}));
+function closeLightbox() { document.getElementById("lightbox").classList.remove("show"); }
+document.getElementById("closeLightbox").addEventListener("click", closeLightbox);
+document.getElementById("lightbox").addEventListener("click", e => { if (e.target.id === "lightbox") closeLightbox(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+document.getElementById("rsvpForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const name = document.getElementById("guestName").value.trim();
+  const response = document.getElementById("attendance").value;
+  const guests = document.getElementById("guests").value;
+  const wishes = document.getElementById("wishes").value.trim();
+  const result = document.getElementById("formResult");
+  result.textContent = `Thank you, ${name}. Your selected response is “${response}” for ${guests} attendee(s). This is only a local preview and has NOT been sent to the couple. Connect a backend to submit it securely.${wishes ? " Your message: “" + wishes + "”" : ""}`;
+  result.classList.add("show");
+});
+
+if (navigator.share) {
+  const share = document.createElement("button");
+  share.className = "music-control";
+  share.style.top = "70px";
+  share.textContent = "Share invitation ↗";
+  share.addEventListener("click", async () => {
+    try { await navigator.share({title: "Wedding Invitation — Jovinia & Albrecht", text: "You are cordially invited to celebrate with us.", url: location.href}); }
+    catch (_) {}
+  });
+  document.body.appendChild(share);
+} else {
+  const share = document.createElement("button");
+  share.className = "music-control";
+  share.style.top = "70px";
+  share.textContent = "Copy invite link";
+  share.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(location.href); share.textContent = "Link copied ✓"; }
+    catch (_) { share.textContent = "Share unavailable"; }
+  });
+  document.body.appendChild(share);
+}
+</script>
+</body>
+</html>
